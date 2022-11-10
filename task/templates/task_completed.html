@@ -1,0 +1,36 @@
+{%extends 'base.html'%} {%block content%} {% load crispy_forms_tags %}
+
+<h1>Tasks Completed</h1>
+{{error}}
+
+<ul class="divChild2">
+  {%for task in tasks%}
+  
+    <a href="{%url 'task_detail' task.id%}">
+      <div class="card text-white bg-success mb-3" style="max-width: 20rem">
+        <div class="card-header">
+          {%if task.important%} <strong>{{task.title}}</strong>
+          {%else%} {{task.title}} {%endif%}
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">{{task.description}}</h4>
+          <p class="card-text">
+            <p>{{task.user.username}}</p>
+            <p>{{task.datecompleted | date:'M j Y'}}</p>
+          </p>
+          
+        </div>
+      </div>
+    </a>
+    <p>
+      <form action="{%url 'delete_task' task.id%}" method="POST">
+        {%csrf_token%}
+        <button class="me-4 btn btn-danger">Delete</button>
+      </form>
+    </p>
+  
+  {%endfor%}
+</ul>
+
+{%endblock%}
+

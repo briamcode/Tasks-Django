@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Crud Aplication</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="/static/style.css">
+    
+    
+  {% load static %}
+  <body>
+    
+    <div class="divFather">
+      <div class="divChild">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" data-bs-toggle="tab" href="/home" aria-selected="true" role="tab">Home</a>
+          </li>
+          {%if user.is_authenticated%}
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" data-bs-toggle="tab" href="/tasks" aria-selected="false" role="tab" tabindex="-1">Tasks Pending</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" data-bs-toggle="tab" href="/tasks_completed" aria-selected="false" tabindex="-1" role="tab">Task Completed</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" data-bs-toggle="tab" href="/task/create/" aria-selected="false" tabindex="-1" role="tab">Create task</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" data-bs-toggle="tab" href="/logout" aria-selected="false" tabindex="-1" role="tab">Logout</a>
+          </li>
+          {%else%}
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" data-bs-toggle="tab" href="/signin" aria-selected="false" tabindex="-1" role="tab">Login</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" data-bs-toggle="tab" href="/signup" aria-selected="false" tabindex="-1" role="tab">Register</a>
+          </li>
+          {%endif%}
+          </li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+          <div class="tab-pane fade active show" id="home" role="tabpanel">
+            
+          </div>
+          
+        </div>
+      
+      
+      {%block content%} {%endblock%}
+    </div> 
+  </div>
+  </body>
+</html>
+
+
+
+

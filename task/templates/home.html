@@ -1,0 +1,31 @@
+{%extends 'base.html'%} {%block content%} {% load static %}
+
+<h1>Task Manager</h1>
+
+<div>
+  <div class="card mb-3">
+    <h3 class="card-header">Manage your tasks</h3>
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <h6 class="card-subtitle text-muted"></h6>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        Create, edit and delete tasks. Register and organize your life with this
+        simple app.
+      </p>
+    </div>
+    <img src="{% static 'out-0.png' %}" alt="My image" />
+
+    <div class="card-footer text-muted"></div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title"></h4>
+      <h6 class="card-subtitle mb-2 text-muted"></h6>
+      <p class="card-text">All rights reserved @briamcode 2022</p>
+    </div>
+  </div>
+</div>
+
+{%endblock%}
